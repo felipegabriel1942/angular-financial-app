@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+label {
+  font-size: 13px;
+  margin-left: 3px;
+  color: gray;
+}
+
+/*Form componentes*/
+.form-control, .input-group-text, .custom-select, .custom-file-input, .custom-file{
+  border-radius: 15px;
+  background-color: white;
+}
+
+.form-control:focus, .custom-select:focus  {
+  box-shadow:0 0 0 .2rem rgba(137, 43, 226, 0.322);
+  border-color:rgba(137, 43, 226, 0.7);
+}
+
+

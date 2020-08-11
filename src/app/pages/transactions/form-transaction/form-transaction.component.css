@@ -1,0 +1,55 @@
+.btn-group, .btn {
+  width: inherit;
+  border-radius: 15px;
+}
+
+.card {
+  border: none;
+}
+
+.custom-button-green {
+  background-color: green;
+}
+
+.custom-button-red {
+  background-color: red;
+}
+
+.custom-button {
+  width: 150px;
+  height: 30px;
+  margin: 5px;
+  border-radius: 35px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.custom-button-red:hover {
+  background-color: rgb(155, 44, 24);
+  box-shadow: 5px 5px 5px  rgb(245, 227, 220);
+}
+
+.custom-button-green:hover {
+  background-color: rgb(6, 97, 6);
+  box-shadow: 5px 5px 5px  rgb(207, 226, 207);
+}
+
+.custom-button:active {
+  transform: scale(1.2);
+  transition: transform 0.05s ease-in-out;
+}
+
+
+.expand-card:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.expand-card {
+  transform: scale(1);
+  transition: transform 0.2s ease-in-out;
+}
+
