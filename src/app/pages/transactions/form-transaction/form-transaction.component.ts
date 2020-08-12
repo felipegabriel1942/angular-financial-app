@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { TransactionEnum } from 'src/app/shared/enum/transaction.enum';
+import { faSave, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-form-transaction',
@@ -9,6 +10,8 @@ import { TransactionEnum } from 'src/app/shared/enum/transaction.enum';
 })
 export class FormTransactionComponent implements OnInit {
 
+  faSave = faSave;
+  faTimes = faTimes;
   TransactionEnum = TransactionEnum;
   transactionForm: FormGroup;
   revenueBtnSelected = true;

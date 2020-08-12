@@ -81,12 +81,20 @@
       <button
         type="button"
         class="custom-button custom-button-red">
+        <fa-icon
+          [icon]="faTimes"
+          class="btn-icon">
+        </fa-icon>
         Cancelar
       </button>
       <button
         type="button"
         class="custom-button custom-button-blue"
         (click)="saveForm()">
+        <fa-icon
+          [icon]="faSave"
+          class="btn-icon">
+        </fa-icon>
         Salvar
       </button>
     </div>
