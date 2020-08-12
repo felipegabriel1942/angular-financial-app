@@ -1,56 +1,99 @@
+<section class="page-content-container">
 
-<div class="card shadow p-3 m-2 ">
-  <div class="row mx-2">
-    <div class="form-group col-md-4">
-      <label>Descrição</label>
-      <input type="text" class="form-control form-control-sm">
-    </div>
+  <nav aria-label="breadcrumb" class="mx-2 shadow" >
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Transações</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Transação</li>
+    </ol>
+  </nav>
 
-    <div class="form-group col-md-2">
-      <label>Valor</label>
-      <input type="number" class="form-control form-control-sm">
-    </div>
+  <div class="card shadow p-2 mx-2 mt-4">
+    <form [formGroup]="transactionForm">
+      <div class="row mx-2">
+        <div class="form-group col-md-4">
+          <label>Descrição</label>
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            formControlName="description">
+        </div>
 
-    <div class="form-group col-md-2">
-      <label>Data</label>
-      <input type="date" class="form-control form-control-sm">
-    </div>
+        <div class="form-group col-md-2">
+          <label>Valor</label>
+          <input
+            type="number"
+            class="form-control form-control-sm"
+            formControlName="value">
+        </div>
 
-    <div class="form-group col-md-2">
-      <div class="row mx-0">
-        <label>Tipo</label>
+        <div class="form-group col-md-2">
+          <label>Data</label>
+          <input
+            type="date"
+            class="form-control form-control-sm"
+            formControlName="date">
+        </div>
+
+        <div class="form-group col-md-2">
+          <div class="row mx-0">
+            <label>Tipo</label>
+          </div>
+
+          <div class="btn-group" role="group" >
+            <button
+              type="button"
+              class="btn btn-sm"
+              [ngClass]="{'btn-success': revenueBtnSelected}"
+              (click)="typeButtonSelected(TransactionEnum.Renevue)">Receita</button>
+            <button
+              type="button"
+              class="btn btn-sm"
+              [ngClass]="{'btn-danger': expenseBtnSelected}"
+              (click)="typeButtonSelected(TransactionEnum.Expense)">Despesa</button>
+          </div>
+        </div>
+
+        <div class="form-group col-md-2">
+          <label>Categoria</label>
+          <select
+            class="custom-select custom-select-sm"
+            formControlName="category">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
       </div>
 
-      <div class="btn-group" role="group" >
-        <button type="button" class="btn btn-success btn-sm">Receita</button>
-        <button type="button" class="btn btn-danger btn-sm">Despesa</button>
+      <div class="row mx-2">
+        <div class="form-group col-md-12">
+          <label for="observation">Observação</label>
+          <textarea
+            class="form-control"
+            id="observation"
+            rows="3">
+          </textarea>
+        </div>
       </div>
-    </div>
-
-    <div class="form-group col-md-2">
-      <label>Categoria</label>
-      <select class="custom-select custom-select-sm">
-        <option selected>Open this select menu</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
-    </div>
-  </div>
-
-  <div class="row mx-2">
-    <div class="form-group col-md-12">
-      <label for="exampleFormControlTextarea1">Observação</label>
-      <textarea
-        class="form-control"
-        id="exampleFormControlTextarea1"
-        rows="3"></textarea>
+    </form>
+    <div class="row mx-3 d-flex justify-content-end">
+      <button
+        type="button"
+        class="custom-button custom-button-red">
+        Cancelar
+      </button>
+      <button
+        type="button"
+        class="custom-button custom-button-blue"
+        (click)="saveForm()">
+        Salvar
+      </button>
     </div>
   </div>
-</div>
+</section>
 
-<button type="button" class="custom-button custom-button-green">Salvar</button>
-<button type="button" class="custom-button custom-button-red">Cancelar</button>
+
 
 
 
