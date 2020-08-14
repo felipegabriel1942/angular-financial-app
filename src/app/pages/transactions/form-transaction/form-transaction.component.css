@@ -1,0 +1,36 @@
+.btn-group, .btn {
+  width: inherit;
+  border-radius: 15px;
+  outline: none;
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+
+.page-content-container {
+  margin-top: 30px;
+}
+
+span {
+  font-size: 13px;
+}
+
+.custom-button {
+  outline: none;
+}
+
+@media only screen and (max-width: 720px) {
+  .custom-button-blue {
+    width: 100%;
+  }
+
+  .custom-button-red {
+    width: 50%;
+  }
+
+  .custom-button-green {
+    width: 50%;
+  }
+}
+
