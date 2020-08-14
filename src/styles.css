@@ -40,21 +40,21 @@ label {
 }
 
 .custom-button-blue {
-  border: 1px solid rgb(72, 100, 224);
-  background-color: white;
-  color: rgb(72, 100, 224);
+  border: none;
+  color: white;
+  background-color: rgb(72, 100, 224);
 }
 
 .custom-button-green {
-  border: 1px solid green;
-  background-color: white;
-  color: green;
+  border: none;
+  color: white;
+  background-color: green;
 }
 
 .custom-button-red {
-  border: 1px solid red;
-  background-color: white;
-  color: red;
+  border: none;
+  color: white;
+  background-color: red;
 }
 
 .custom-button {
@@ -66,27 +66,6 @@ label {
   cursor: pointer;
   outline: none;
   font-size: 15px;
-}
-
-.custom-button-red:hover {
-  background-color: red;
-  color: white;
-  box-shadow: 5px 5px 5px rgb(245, 227, 220);
-  transition: background-color, color, 0.3s ease-in-out;
-}
-
-.custom-button-blue:hover {
-  background-color: rgb(72, 100, 224);
-  color: white;
-  box-shadow: 5px 5px 5px rgb(207, 226, 215);
-  transition: background-color, color, 0.3s ease-in-out;
-}
-
-.custom-button-green:hover {
-  background-color: green;
-  color: white;
-  box-shadow: 5px 5px 5px rgb(207, 226, 215);
-  transition: background-color, color, 0.3s ease-in-out;
 }
 
 .custom-button:active {

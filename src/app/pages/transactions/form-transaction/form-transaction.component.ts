@@ -48,6 +48,10 @@ export class FormTransactionComponent implements OnInit {
 
   }
 
+  resetField(field: string) {
+    this.transactionForm.get(field).reset();
+  }
+
   filterCategoryList() {
     if (this.expenseBtnSelected) {
       return this.transactionsService.transactionsCategoryList.filter(category => category.type === TransactionEnum.Expense);

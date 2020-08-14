@@ -46,7 +46,8 @@
               type="button"
               class="btn custom-button mx-0"
               [ngClass]="{'custom-button-green-selected': revenueBtnSelected}"
-              (click)="typeButtonSelected(TransactionEnum.Revenue)">
+              (click)="typeButtonSelected(TransactionEnum.Revenue)"
+              (click)="resetField('category')">
               <fa-icon
                 [icon]="faThumbsUp"
                 class="btn-icon">
@@ -57,7 +58,8 @@
               type="button"
               class="btn custom-button mx-0"
               [ngClass]="{'custom-button-red-selected': expenseBtnSelected}"
-              (click)="typeButtonSelected(TransactionEnum.Expense)">
+              (click)="typeButtonSelected(TransactionEnum.Expense)"
+              (click)="resetField('category')">
               <fa-icon
                 [icon]="faThumbsDown"
                 class="btn-icon">
@@ -86,7 +88,7 @@
       </div>
 
       <div class="row mx-2">
-        <div class="form-group col-md-12">
+        <div class="form-group col-md-12 px-1">
           <label for="observation">Observação</label>
           <textarea
             class="form-control"
@@ -97,7 +99,7 @@
         </div>
       </div>
     </form>
-    <div class="row mx-3 d-flex justify-content-end">
+    <div class="row mx-2 d-flex justify-content-end">
       <button
         type="button"
         class="custom-button custom-button-red not-on-mobile">
