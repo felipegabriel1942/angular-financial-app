@@ -23,6 +23,10 @@ label {
   background-color: white;
 }
 
+.page-content-container {
+  margin-top: 30px;
+}
+
 /*Form componentes*/
 .form-control, .input-group-text, .custom-select, .custom-file-input, .custom-file{
   border-radius: 15px;
