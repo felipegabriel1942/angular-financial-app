@@ -1,1 +1,136 @@
-<p>form-transaction works!</p>
+<section class="page-content-container">
+
+  <nav aria-label="breadcrumb" class="mx-2 shadow" >
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Transações</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Transação</li>
+    </ol>
+  </nav>
+
+  <div class="card shadow p-2 mx-2 mt-4">
+    <form [formGroup]="transactionForm">
+      <div class="row mx-2">
+        <div class="form-group col-md-4 px-1">
+          <label>Descrição</label>
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            formControlName="description">
+        </div>
+
+        <div class="form-group col-md-2 px-1">
+          <label>Valor</label>
+          <input
+            type="number"
+            class="form-control form-control-sm"
+            formControlName="value">
+        </div>
+
+        <div class="form-group col-md-2 px-1">
+          <label>Data</label>
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            formControlName="date"
+            bsDatepicker
+            [bsConfig]="{ isAnimated: true, dateInputFormat: 'DD/MM/YYYY' }">
+        </div>
+
+        <div class="form-group col-md-2 px-1">
+          <div class="row mx-0">
+            <label class="mb-1">Tipo</label>
+          </div>
+
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <button
+              type="button"
+              class="btn custom-button mx-0"
+              [ngClass]="{'custom-button-green-selected': revenueBtnSelected}"
+              (click)="typeButtonSelected(TransactionEnum.Revenue)"
+              (click)="resetField('category')">
+              <fa-icon
+                [icon]="faThumbsUp"
+                class="btn-icon">
+              </fa-icon>
+              <span *ngIf="revenueBtnSelected">Receita</span>
+            </button>
+            <button
+              type="button"
+              class="btn custom-button mx-0"
+              [ngClass]="{'custom-button-red-selected': expenseBtnSelected}"
+              (click)="typeButtonSelected(TransactionEnum.Expense)"
+              (click)="resetField('category')">
+              <fa-icon
+                [icon]="faThumbsDown"
+                class="btn-icon">
+              </fa-icon>
+              <span *ngIf="expenseBtnSelected">Despesa</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-group col-md-2 px-1">
+          <label>Categoria</label>
+          <select
+            class="custom-select custom-select-sm"
+            formControlName="category">
+            <option
+              [value]=""
+              [selected]="transactionForm.get('category').value == ''"
+              hidden>
+              Selecione...
+            </option>
+            <option
+              [value]="c?.description"
+              *ngFor="let c of transactionsCategoryList">{{c?.description}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row mx-2">
+        <div class="form-group col-md-12 px-1">
+          <label for="observation">Observação</label>
+          <textarea
+            class="form-control"
+            id="observation"
+            formControlName="observation"
+            rows="3">
+          </textarea>
+        </div>
+      </div>
+    </form>
+    <div class="row mx-2 d-flex justify-content-end">
+      <button
+        type="button"
+        class="custom-button custom-button-red not-on-mobile">
+        <fa-icon
+          [icon]="faTimes"
+          class="btn-icon">
+        </fa-icon>
+        Cancelar
+      </button>
+      <button
+        type="button"
+        class="custom-button custom-button-blue"
+        (click)="saveForm()">
+        <fa-icon
+          [icon]="faSave"
+          class="btn-icon">
+        </fa-icon>
+        Salvar
+      </button>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
