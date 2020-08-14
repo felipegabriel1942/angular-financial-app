@@ -15,6 +15,14 @@ label {
   color: gray;
 }
 
+.card {
+  border: none;
+}
+
+.breadcrumb {
+  background-color: white;
+}
+
 /*Form componentes*/
 .form-control, .input-group-text, .custom-select, .custom-file-input, .custom-file{
   border-radius: 15px;
@@ -26,8 +34,135 @@ label {
   border-color:rgba(137, 43, 226, 0.7);
 }
 
+/* Buttons */
 .btn-icon {
   margin-right: 5px;
 }
 
+.custom-button-blue {
+  border: 1px solid rgb(72, 100, 224);
+  background-color: white;
+  color: rgb(72, 100, 224);
+}
 
+.custom-button-green {
+  border: 1px solid green;
+  background-color: white;
+  color: green;
+}
+
+.custom-button-red {
+  border: 1px solid red;
+  background-color: white;
+  color: red;
+}
+
+.custom-button {
+  width: 150px;
+  height: 34px;
+  margin: 5px;
+  border-radius: 35px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  font-size: 15px;
+}
+
+.custom-button-red:hover {
+  background-color: red;
+  color: white;
+  box-shadow: 5px 5px 5px rgb(245, 227, 220);
+  transition: background-color, color, 0.3s ease-in-out;
+}
+
+.custom-button-blue:hover {
+  background-color: rgb(72, 100, 224);
+  color: white;
+  box-shadow: 5px 5px 5px rgb(207, 226, 215);
+  transition: background-color, color, 0.3s ease-in-out;
+}
+
+.custom-button-green:hover {
+  background-color: green;
+  color: white;
+  box-shadow: 5px 5px 5px rgb(207, 226, 215);
+  transition: background-color, color, 0.3s ease-in-out;
+}
+
+.custom-button:active {
+  transform: scale(1.1);
+  transition: transform 0.05s ease-in-out;
+}
+
+.custom-button-red-selected {
+  background-color: red;
+  color: white;
+  transition: background-color, color, 0.3s ease-in-out;
+}
+
+.custom-button-green-selected {
+  background-color: green;
+  color: white;
+  transition: background-color, color, 0.3s ease-in-out;
+}
+
+/* ROUNDED BUTTONS */
+.btn-circle.btn-sm {
+  width: 30px;
+  height: 30px;
+  padding: 6px 0px;
+  border-radius: 15px;
+  font-size: 8px;
+  text-align: center;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-circle.btn-md {
+  width: 50px;
+  height: 50px;
+  padding: 7px 10px;
+  border-radius: 25px;
+  font-size: 18px;
+  text-align: center;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  border-radius: 35px;
+  font-size: 12px;
+  text-align: center;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-circle:active {
+  transform: scale(1.1);
+  transition: transform 0.05s ease-in-out;
+}
+
+/* NGX DATEPICKER */
+.theme-green .bs-datepicker-body table td span.selected, .theme-green .bs-datepicker-body table td.selected span, .theme-green .bs-datepicker-body table td span[class*="select-"]:after, .theme-green .bs-datepicker-body table td[class*="select-"] span:after {
+  background-color: rgba(137, 43, 226, 0.7);
+}
+
+.theme-green .bs-datepicker-body table td.week span {
+  color: rgba(137, 43, 226, 0.7);
+}
+
+.theme-green .bs-datepicker-head {
+  background-color: rgba(137, 43, 226, 0.7);
+}
+
+@media only screen and (max-width: 720px) {
+  .not-on-mobile {
+    display: none;
+  }
+}

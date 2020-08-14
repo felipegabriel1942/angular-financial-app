@@ -1,5 +1,5 @@
 export enum TransactionEnum {
-  Renevue = 'renevue',
+  Revenue = 'revenue',
   Expense = 'expense'
 
 }
