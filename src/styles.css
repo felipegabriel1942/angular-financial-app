@@ -63,6 +63,13 @@ label {
   outline: none;
 }
 
+@media only screen and (max-width: 768px) {
+  .btn-custom {
+    min-width: 100%;
+    width: 100%;
+  }
+}
+
 .btn-custom-primary {
   color: #0275d8;
 }
@@ -106,7 +113,7 @@ label {
   background-color: rgba(137, 43, 226, 0.7);
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 768px) {
   .not-on-mobile {
     display: none;
   }
