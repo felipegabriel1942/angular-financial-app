@@ -1,17 +1,3 @@
-.btn-group, .btn {
-  width: inherit;
-  border-radius: 15px;
-  outline: none;
-}
-
-.btn:focus {
-  box-shadow: none;
-}
-
-.page-content-container {
-  margin-top: 30px;
-}
-
 span {
   font-size: 13px;
 }

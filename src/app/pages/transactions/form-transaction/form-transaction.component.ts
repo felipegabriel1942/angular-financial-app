@@ -37,7 +37,7 @@ export class FormTransactionComponent implements OnInit {
   }
 
   saveForm() {
-    this.transactionsService.transactionsList.push(this.transactionForm.value);
+    this.transactionsService.saveTransaction(this.transactionForm.value);
   }
 
   typeButtonSelected(typeButton: string) {
