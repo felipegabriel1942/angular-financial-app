@@ -4,14 +4,12 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { FormControlValidationDirective } from './directives/form-control-validation.directive';
-import { FormValidationDirective } from './directives/form-validation.directive';
 import { FormButtonSubmitDirective } from './directives/form-button-submit.directive';
 
 
 @NgModule({
   declarations: [
     FormControlValidationDirective,
-    FormValidationDirective,
     FormButtonSubmitDirective],
   imports: [
     CommonModule,
@@ -27,7 +25,6 @@ import { FormButtonSubmitDirective } from './directives/form-button-submit.direc
     FontAwesomeModule,
     BsDatepickerModule,
     FormControlValidationDirective,
-    FormValidationDirective,
     FormButtonSubmitDirective
   ]
 })
