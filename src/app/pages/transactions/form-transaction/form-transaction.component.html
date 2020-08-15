@@ -1,105 +1,81 @@
-<section class="page-content-container">
-
-  <nav aria-label="breadcrumb" class="mx-2 shadow" >
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Transações</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Transação</li>
-    </ol>
-  </nav>
-
-  <div class="card shadow p-2 mx-2 mt-4">
-    <form [formGroup]="transactionForm">
-      <div class="row mx-2">
-        <div class="form-group col-md-4 px-1">
-          <label>Descrição</label>
-          <input
-            type="text"
-            class="form-control form-control-sm"
-            formControlName="description">
-        </div>
-
-        <div class="form-group col-md-2 px-1">
-          <label>Valor</label>
-          <input
-            type="number"
-            class="form-control form-control-sm"
-            formControlName="value">
-        </div>
-
-        <div class="form-group col-md-2 px-1">
-          <label>Data</label>
-          <input
-            type="text"
-            class="form-control form-control-sm"
-            formControlName="date"
-            bsDatepicker
-            [bsConfig]="{ isAnimated: true, dateInputFormat: 'DD/MM/YYYY' }">
-        </div>
-
-        <div class="form-group col-md-2 px-1">
-          <label>Tipo</label>
-          <select
-            class="custom-select custom-select-sm"
-            formControlName="type">
-            <option [value]="TransactionEnum.Revenue">Receita</option>
-            <option [value]="TransactionEnum.Expense">Despesa</option>
-          </select>
-
-          <!--
-          <div class="btn-group" role="group" aria-label="Basic example">
-            <button
-              type="button"
-              class="btn mx-0"
-              [ngClass]="{'btn-success': revenueBtnSelected, 'btn-light': !revenueBtnSelected}"
-              (click)="typeButtonSelected(TransactionEnum.Revenue)"
-              (click)="resetField('category')">
-              <span>Receita</span>
-            </button>
-            <button
-              type="button"
-              class="btn mx-0"
-              [ngClass]="{'btn-danger': expenseBtnSelected, 'btn-light': !expenseBtnSelected}"
-              (click)="typeButtonSelected(TransactionEnum.Expense)"
-              (click)="resetField('category')">
-              <span>Despesa</span>
-            </button>
-          </div>-->
-        </div>
-
-        <div class="form-group col-md-2 px-1">
-          <label>Categoria</label>
-          <select
-            class="custom-select custom-select-sm"
-            formControlName="category">
-            <option
-              [value]=""
-              [selected]="transactionForm.get('category').value == ''"
-              hidden>
-              Selecione...
-            </option>
-            <option
-              [value]="c?.description"
-              *ngFor="let c of transactionsCategoryList">{{c?.description}}</option>
-          </select>
-        </div>
+<div class="card shadow p-2 mx-2 mt-4">
+  <form [formGroup]="transactionForm">
+    <div class="row mx-2">
+      <div class="form-group col-md-4 px-1">
+        <label>Descrição</label>
+        <input
+          type="text"
+          class="form-control form-control-sm"
+          formControlName="description"
+          formControlValidation>
       </div>
 
-      <div class="row mx-2">
-        <div class="form-group col-md-12 px-1">
-          <label for="observation">Observação</label>
-          <textarea
-            class="form-control"
-            id="observation"
-            formControlName="observation"
-            rows="3">
-          </textarea>
-        </div>
+      <div class="form-group col-md-2 px-1">
+        <label>Valor</label>
+        <input
+          type="number"
+          class="form-control form-control-sm"
+          formControlName="value"
+          formControlValidation>
       </div>
-    </form>
-    <div class="row ml-3 mr-2 d-flex justify-content-end">
+
+      <div class="form-group col-md-2 px-1">
+        <label>Data</label>
+        <input
+          type="text"
+          class="form-control form-control-sm"
+          formControlName="date"
+          bsDatepicker
+          formControlValidation
+          [bsConfig]="datepickerConfig">
+      </div>
+
+      <div class="form-group col-md-2 px-1">
+        <label>Tipo</label>
+        <select
+          class="custom-select custom-select-sm"
+          formControlName="type"
+          formControlValidation
+          (change)="filterCategoryList()">
+          <option [value]="TransactionEnum.Revenue">Receita</option>
+          <option [value]="TransactionEnum.Expense">Despesa</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-2 px-1">
+        <label>Categoria</label>
+        <select
+          class="custom-select custom-select-sm"
+          formControlName="category"
+          formControlValidation>
+          <option
+            [value]=""
+            [selected]="transactionForm.get('category').value == ''"
+            hidden>
+            Selecione...
+          </option>
+          <option
+            [value]="category?.description"
+            *ngFor="let category of transactionsCategoryList">{{category?.description}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row mx-2">
+      <div class="form-group col-md-12 px-1">
+        <label for="observation">Observação</label>
+        <textarea
+          class="form-control"
+          id="observation"
+          formControlName="observation"
+          rows="3">
+        </textarea>
+      </div>
+    </div>
+    <div class="row ml-3 mr-2 mb-2 d-flex justify-content-end">
       <button
-        type="button"
-        class="btn-custom btn-custom-danger mx-1 not-on-mobile">
+        class="btn-custom btn-custom-danger mx-1 not-on-mobile"
+        type="button">
         <fa-icon
           [icon]="faTimes"
           class="btn-icon">
@@ -107,8 +83,11 @@
         Cancelar
       </button>
       <button
-        type="button"
-        class="btn-custom btn-custom-primary mx-1">
+        class="btn-custom btn-custom-primary mx-1"
+        type="submit"
+        formButtonSubmit
+        [submittedForm]="transactionForm"
+        (click)="saveForm()">
         <fa-icon
           [icon]="faSave"
           class="btn-icon">
@@ -116,11 +95,8 @@
         Salvar
       </button>
     </div>
-  </div>
-</section>
-
-
-
+  </form>
+</div>
 
 
 

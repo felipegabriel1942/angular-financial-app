@@ -5,7 +5,16 @@
 
   </div>
   <div class="col-md-10">
-    <router-outlet></router-outlet>
+    <nav aria-label="breadcrumb" class="mx-2 mt-4" >
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Transações</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Transação</li>
+      </ol>
+    </nav>
+
+    <section class="page-content-container">
+      <router-outlet></router-outlet>
+    </section>
   </div>
 </div>
 
