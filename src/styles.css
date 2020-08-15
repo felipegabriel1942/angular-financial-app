@@ -55,24 +55,42 @@ label {
   min-width: 10%;
   width: 15%;
   max-height: 35px;
-}
-
-.btn-custom-primary {
-  color: #0275d8;
-}
-
-.btn-custom-danger {
-  color: #d9534f;
+  background-position: center;
+  transition: background 0.5s;
 }
 
 .btn-custom:focus {
   outline: none;
 }
 
-.btn-custom:active {
-  outline: none;
-  background: rgb(230, 230, 233);
-  transition: background 0.02s ease-in-out;
+.btn-custom-primary {
+  color: #0275d8;
+}
+
+.btn-custom-primary:hover {
+  background: #0275d8 radial-gradient(circle, transparent 1%, #0275d8 1%) center/15000%;
+  color: white;
+}
+
+.btn-custom-primary:active {
+  background-color: #6eb9f7;
+  background-size: 100%;
+  transition: background 0s;
+}
+
+.btn-custom-danger {
+  color: #d9534f;
+}
+
+.btn-custom-danger:hover {
+  background: #d9534f radial-gradient(circle, transparent 1%, #d9534f 1%) center/15000%;
+  color: white;
+}
+
+.btn-custom-danger:active {
+  background-color: #f39a97;
+  background-size: 100%;
+  transition: background 0s;
 }
 
 /* NGX DATEPICKER */
