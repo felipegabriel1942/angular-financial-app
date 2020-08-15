@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TransactionEnum } from 'src/app/shared/enum/transaction.enum';
 import { faSave, faTimes, faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 import { TransactionsService } from 'src/app/shared/service/transactions.service';
@@ -26,7 +26,7 @@ export class FormTransactionComponent implements OnInit {
   ngOnInit() {
 
     this.transactionForm = new FormGroup({
-      description: new FormControl(''),
+      description: new FormControl('', Validators.required),
       value: new FormControl(null),
       date: new FormControl(new Date()),
       type: new FormControl(TransactionEnum.Revenue),
