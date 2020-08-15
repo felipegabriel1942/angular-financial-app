@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { FormControlValidationDirective } from './directives/form-control-validation.directive';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [FormControlValidationDirective],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -19,7 +20,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     CommonModule,
     ReactiveFormsModule,
     FontAwesomeModule,
-    BsDatepickerModule
+    BsDatepickerModule,
+    FormControlValidationDirective
   ]
 })
 export class SharedModule { }

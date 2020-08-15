@@ -7,16 +7,7 @@
           type="text"
           class="form-control form-control-sm"
           formControlName="description"
-          [ngClass]="{'invalid-input': transactionForm.get('description').errors && transactionForm.get('description').touched}">
-        <small
-          *ngIf="transactionForm.get('description').errors && transactionForm.get('description').touched"
-          class="error-message">
-          <fa-icon
-            [icon]="faExclamationTriangle"
-            class="btn-icon">
-          </fa-icon>
-          Campo obrigatório
-        </small>
+          formControlValidation>
       </div>
 
       <div class="form-group col-md-2 px-1">
@@ -24,7 +15,8 @@
         <input
           type="number"
           class="form-control form-control-sm"
-          formControlName="value">
+          formControlName="value"
+          formControlValidation>
       </div>
 
       <div class="form-group col-md-2 px-1">
@@ -34,6 +26,7 @@
           class="form-control form-control-sm"
           formControlName="date"
           bsDatepicker
+          formControlValidation
           [bsConfig]="{ isAnimated: true, dateInputFormat: 'DD/MM/YYYY' }">
       </div>
 
@@ -41,7 +34,8 @@
         <label>Tipo</label>
         <select
           class="custom-select custom-select-sm"
-          formControlName="type">
+          formControlName="type"
+          formControlValidation>
           <option [value]="TransactionEnum.Revenue">Receita</option>
           <option [value]="TransactionEnum.Expense">Despesa</option>
         </select>
@@ -51,7 +45,8 @@
         <label>Categoria</label>
         <select
           class="custom-select custom-select-sm"
-          formControlName="category">
+          formControlName="category"
+          formControlValidation>
           <option
             [value]=""
             [selected]="transactionForm.get('category').value == ''"
@@ -59,8 +54,8 @@
             Selecione...
           </option>
           <option
-            [value]="c?.description"
-            *ngFor="let c of transactionsCategoryList">{{c?.description}}</option>
+            [value]="category?.description"
+            *ngFor="let category of transactionsCategoryList">{{category?.description}}</option>
         </select>
       </div>
     </div>
@@ -88,7 +83,6 @@
       Cancelar
     </button>
     <button
-      type="button"
       class="btn-custom btn-custom-primary mx-1">
       <fa-icon
         [icon]="faSave"
@@ -98,10 +92,6 @@
     </button>
   </div>
 </div>
-
-
-
-
 
 
 

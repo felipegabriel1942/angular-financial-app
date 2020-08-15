@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TransactionEnum } from 'src/app/shared/enum/transaction.enum';
-import { faSave, faTimes, faThumbsUp, faThumbsDown, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
+import { faSave, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { TransactionsService } from 'src/app/shared/service/transactions.service';
 
 @Component({
@@ -13,9 +13,6 @@ export class FormTransactionComponent implements OnInit {
 
   faSave = faSave;
   faTimes = faTimes;
-  faThumbsUp = faThumbsUp;
-  faThumbsDown = faThumbsDown;
-  faExclamationTriangle = faExclamationTriangle;
   TransactionEnum = TransactionEnum;
   transactionForm: FormGroup;
   revenueBtnSelected = true;
@@ -28,12 +25,13 @@ export class FormTransactionComponent implements OnInit {
 
     this.transactionForm = new FormGroup({
       description: new FormControl('', Validators.required),
-      value: new FormControl(null),
-      date: new FormControl(new Date()),
-      type: new FormControl(TransactionEnum.Revenue),
-      category: new FormControl(''),
+      value: new FormControl(null, Validators.required),
+      date: new FormControl(new Date(), Validators.required),
+      type: new FormControl(TransactionEnum.Revenue, Validators.required),
+      category: new FormControl('', Validators.required),
       observation: new FormControl('')
     });
+
     this.transactionsCategoryList = this.filterCategoryList();
   }
 

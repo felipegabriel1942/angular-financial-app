@@ -47,7 +47,7 @@ nav {
   border-color:rgba(137, 43, 226, 0.7);
 }
 
-.invalid-input {
+.invalid-field {
   box-shadow:0 0 0 .2rem rgba(226, 31, 24, 0.322);
   border-color:rgba(233, 33, 18, 0.7);
 }
