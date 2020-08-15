@@ -9,7 +9,10 @@ import { FormButtonSubmitDirective } from './directives/form-button-submit.direc
 
 
 @NgModule({
-  declarations: [FormControlValidationDirective, FormValidationDirective, FormButtonSubmitDirective],
+  declarations: [
+    FormControlValidationDirective,
+    FormValidationDirective,
+    FormButtonSubmitDirective],
   imports: [
     CommonModule,
     ReactiveFormsModule,
