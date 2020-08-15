@@ -37,11 +37,11 @@ label {
   border-color:rgba(137, 43, 226, 0.7);
 }
 
-/* Buttons */
 .btn-icon {
   margin-right: 5px;
 }
 
+/* Custom Buttons */
 .btn-custom {
   cursor: pointer;
   background: white;

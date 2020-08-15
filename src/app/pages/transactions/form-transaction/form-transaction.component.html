@@ -37,36 +37,33 @@
         </div>
 
         <div class="form-group col-md-2 px-1">
-          <div class="row mx-0">
-            <label class="mb-1">Tipo</label>
-          </div>
+          <label>Tipo</label>
+          <select
+            class="custom-select custom-select-sm"
+            formControlName="type">
+            <option [value]="TransactionEnum.Revenue">Receita</option>
+            <option [value]="TransactionEnum.Expense">Despesa</option>
+          </select>
 
+          <!--
           <div class="btn-group" role="group" aria-label="Basic example">
             <button
               type="button"
-              class="btn custom-button mx-0"
-              [ngClass]="{'custom-button-green-selected': revenueBtnSelected}"
+              class="btn mx-0"
+              [ngClass]="{'btn-success': revenueBtnSelected, 'btn-light': !revenueBtnSelected}"
               (click)="typeButtonSelected(TransactionEnum.Revenue)"
               (click)="resetField('category')">
-              <fa-icon
-                [icon]="faThumbsUp"
-                class="btn-icon">
-              </fa-icon>
-              <span *ngIf="revenueBtnSelected">Receita</span>
+              <span>Receita</span>
             </button>
             <button
               type="button"
-              class="btn custom-button mx-0"
-              [ngClass]="{'custom-button-red-selected': expenseBtnSelected}"
+              class="btn mx-0"
+              [ngClass]="{'btn-danger': expenseBtnSelected, 'btn-light': !expenseBtnSelected}"
               (click)="typeButtonSelected(TransactionEnum.Expense)"
               (click)="resetField('category')">
-              <fa-icon
-                [icon]="faThumbsDown"
-                class="btn-icon">
-              </fa-icon>
-              <span *ngIf="expenseBtnSelected">Despesa</span>
+              <span>Despesa</span>
             </button>
-          </div>
+          </div>-->
         </div>
 
         <div class="form-group col-md-2 px-1">
