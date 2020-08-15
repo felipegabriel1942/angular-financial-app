@@ -18,6 +18,7 @@ export class FormTransactionComponent implements OnInit {
   revenueBtnSelected = true;
   expenseBtnSelected = false;
   transactionsCategoryList = [];
+  datepickerConfig = { isAnimated: true, dateInputFormat: 'DD/MM/YYYY' };
 
   constructor(private transactionsService: TransactionsService) { }
 
@@ -32,30 +33,41 @@ export class FormTransactionComponent implements OnInit {
       observation: new FormControl('')
     });
 
-    this.transactionsCategoryList = this.filterCategoryList();
+    this.filterCategoryList();
   }
 
   saveForm() {
-    this.transactionsService.saveTransaction(this.transactionForm.value);
-  }
-
-  typeButtonSelected(typeButton: string) {
-    this.transactionForm.get('type').setValue(typeButton);
-    this.expenseBtnSelected = typeButton === TransactionEnum.Expense;
-    this.revenueBtnSelected = typeButton === TransactionEnum.Revenue;
-    this.transactionsCategoryList = this.filterCategoryList();
-
-  }
-
-  resetField(field: string) {
-    this.transactionForm.get(field).reset();
+    if (this.transactionForm.invalid) {
+      console.log('Ainda não....');
+    } else {
+      console.log('Salvou...');
+    }
+    // this.transactionsService.saveTransaction(this.transactionForm.value);
   }
 
   filterCategoryList() {
-    if (this.expenseBtnSelected) {
-      return this.transactionsService.transactionsCategoryList.filter(category => category.type === TransactionEnum.Expense);
+
+    const typeSelected = this.transactionForm.get('type').value;
+    this.resetField('category');
+
+    if (typeSelected === TransactionEnum.Expense) {
+      this.transactionsCategoryList = this.transactionsService.transactionsCategoryList.filter(
+        category => category.type === TransactionEnum.Expense
+      );
+
     } else {
-      return this.transactionsService.transactionsCategoryList.filter(category => category.type === TransactionEnum.Revenue);
+      this.transactionsCategoryList = this.transactionsService.transactionsCategoryList.filter(
+        category => category.type === TransactionEnum.Revenue
+      );
+
     }
+  }
+
+  resetField(field: string, value = '') {
+    const categoryField = this.transactionForm.get(field);
+    categoryField.reset();
+    categoryField.setValue(value);
+    categoryField.markAsUntouched();
+    categoryField.setErrors(null);
   }
 }

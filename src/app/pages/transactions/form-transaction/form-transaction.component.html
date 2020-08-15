@@ -27,7 +27,7 @@
           formControlName="date"
           bsDatepicker
           formControlValidation
-          [bsConfig]="{ isAnimated: true, dateInputFormat: 'DD/MM/YYYY' }">
+          [bsConfig]="datepickerConfig">
       </div>
 
       <div class="form-group col-md-2 px-1">
@@ -35,7 +35,8 @@
         <select
           class="custom-select custom-select-sm"
           formControlName="type"
-          formControlValidation>
+          formControlValidation
+          (change)="filterCategoryList()">
           <option [value]="TransactionEnum.Revenue">Receita</option>
           <option [value]="TransactionEnum.Expense">Despesa</option>
         </select>
@@ -71,26 +72,30 @@
         </textarea>
       </div>
     </div>
+    <div class="row ml-3 mr-2 mb-2 d-flex justify-content-end">
+      <button
+        class="btn-custom btn-custom-danger mx-1 not-on-mobile"
+        type="button">
+        <fa-icon
+          [icon]="faTimes"
+          class="btn-icon">
+        </fa-icon>
+        Cancelar
+      </button>
+      <button
+        class="btn-custom btn-custom-primary mx-1"
+        type="submit"
+        formButtonSubmit
+        [submittedForm]="transactionForm"
+        (click)="saveForm()">
+        <fa-icon
+          [icon]="faSave"
+          class="btn-icon">
+        </fa-icon>
+        Salvar
+      </button>
+    </div>
   </form>
-  <div class="row ml-3 mr-2 mb-2 d-flex justify-content-end">
-    <button
-      type="button"
-      class="btn-custom btn-custom-danger mx-1 not-on-mobile">
-      <fa-icon
-        [icon]="faTimes"
-        class="btn-icon">
-      </fa-icon>
-      Cancelar
-    </button>
-    <button
-      class="btn-custom btn-custom-primary mx-1">
-      <fa-icon
-        [icon]="faSave"
-        class="btn-icon">
-      </fa-icon>
-      Salvar
-    </button>
-  </div>
 </div>
 
 
