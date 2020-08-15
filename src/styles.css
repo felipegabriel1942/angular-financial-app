@@ -56,16 +56,20 @@ nav {
   margin-right: 5px;
 }
 
+.error-message {
+  color: red;
+}
+
 /* Custom Buttons */
 .btn-custom {
   cursor: pointer;
   background: white;
   outline: none;
-  border: 1px solid #ced4da;
+  border: none;
   padding: 5px;
   font-size: 14px;
   border-radius: 5px;
-  box-shadow: 0px 2px 4px 0px rgba(128, 128, 128, 0.397);
+  box-shadow: 0px 1px 4px 0px rgba(128, 128, 128, 0.397);
   min-width: 10%;
   width: 15%;
   max-height: 35px;

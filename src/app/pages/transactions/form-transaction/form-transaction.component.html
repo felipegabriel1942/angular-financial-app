@@ -8,6 +8,15 @@
           class="form-control form-control-sm"
           formControlName="description"
           [ngClass]="{'invalid-input': transactionForm.get('description').errors && transactionForm.get('description').touched}">
+        <small
+          *ngIf="transactionForm.get('description').errors && transactionForm.get('description').touched"
+          class="error-message">
+          <fa-icon
+            [icon]="faExclamationTriangle"
+            class="btn-icon">
+          </fa-icon>
+          Campo obrigatório
+        </small>
       </div>
 
       <div class="form-group col-md-2 px-1">

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TransactionEnum } from 'src/app/shared/enum/transaction.enum';
-import { faSave, faTimes, faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
+import { faSave, faTimes, faThumbsUp, faThumbsDown, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import { TransactionsService } from 'src/app/shared/service/transactions.service';
 
 @Component({
@@ -15,6 +15,7 @@ export class FormTransactionComponent implements OnInit {
   faTimes = faTimes;
   faThumbsUp = faThumbsUp;
   faThumbsDown = faThumbsDown;
+  faExclamationTriangle = faExclamationTriangle;
   TransactionEnum = TransactionEnum;
   transactionForm: FormGroup;
   revenueBtnSelected = true;
