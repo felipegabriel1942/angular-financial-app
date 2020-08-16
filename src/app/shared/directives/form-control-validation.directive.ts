@@ -27,7 +27,7 @@ export class FormControlValidationDirective implements OnInit, OnDestroy {
     this.controlSubscription.unsubscribe();
   }
 
-  @HostListener('blur', ['$event'])
+  @HostListener('blur')
   handleBlurEvent() {
     if (this.control.value == null || this.control.value === '') {
       this.control.errors ? this.showError() : this.removeError();
