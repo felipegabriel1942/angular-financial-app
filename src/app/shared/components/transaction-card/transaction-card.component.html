@@ -1,0 +1,59 @@
+<div class="card shadow p-4 mx-2 mt-4">
+
+  <div class="row">
+    <div
+      class="transaction-card-avatar transaction-card-avatar-revenue mx-1 d-flex justify-content-center align-items-center">
+      <fa-icon
+        [icon]="faThumbsUp"
+        style="color: white;">
+      </fa-icon>
+    </div>
+    <div class="mx-3">
+      <h6>
+        R$ 2.500,00 | Salário do mês
+      </h6>
+      <small>Receita | 05/08/2020</small>
+    </div>
+  </div>
+
+
+  <!-- <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Descrição</th>
+          <th scope="col">Valor</th>
+          <th scope="col">Data</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Categoria</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let t of transactionsList">
+          <td>{{t.description}}</td>
+          <td>{{t.value}}</td>
+          <td>{{t.date}}</td>
+          <td>{{t.type === 'revenue' ? 'Receita' : 'Despesa'}}</td>
+          <td>{{t.category}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->
+</div>
+<div class="card shadow p-4 mx-2 mt-4">
+  <div class="row">
+    <div
+      class="transaction-card-avatar transaction-card-avatar-expense mx-1 d-flex justify-content-center align-items-center">
+      <fa-icon
+        [icon]="faThumbsDown"
+        style="color: white;">
+      </fa-icon>
+    </div>
+    <div class="mx-3">
+      <h6>
+        R$ 500,00 | Compras do mês
+      </h6>
+      <small>Alimentação | 07/08/2020</small>
+    </div>
+  </div>
+</div>

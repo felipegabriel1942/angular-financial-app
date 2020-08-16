@@ -1,33 +1,3 @@
 <section class="page-content-container">
-
-  <nav aria-label="breadcrumb" class="mx-2 shadow" >
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Transações</a></li>
-    </ol>
-  </nav>
-
-  <div class="card shadow p-4 mx-2 mt-4">
-    <div class="table-responsive">
-      <table class="table table-bordered table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Descrição</th>
-            <th scope="col">Valor</th>
-            <th scope="col">Data</th>
-            <th scope="col">Tipo</th>
-            <th scope="col">Categoria</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let t of transactionsList">
-            <td>{{t.description}}</td>
-            <td>{{t.value}}</td>
-            <td>{{t.date}}</td>
-            <td>{{t.type === 'revenue' ? 'Receita' : 'Despesa'}}</td>
-            <td>{{t.category}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+  <app-transaction-card></app-transaction-card>
 </section>

@@ -7,11 +7,13 @@ import { FormControlValidationDirective } from './directives/form-control-valida
 import { FormButtonSubmitDirective } from './directives/form-button-submit.directive';
 
 import { ToastrModule } from 'ngx-toastr';
+import { TransactionCardComponent } from './components/transaction-card/transaction-card.component';
 
 @NgModule({
   declarations: [
     FormControlValidationDirective,
-    FormButtonSubmitDirective
+    FormButtonSubmitDirective,
+    TransactionCardComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +31,8 @@ import { ToastrModule } from 'ngx-toastr';
     BsDatepickerModule,
     FormControlValidationDirective,
     FormButtonSubmitDirective,
-    ToastrModule
+    ToastrModule,
+    TransactionCardComponent
   ]
 })
 export class SharedModule { }
