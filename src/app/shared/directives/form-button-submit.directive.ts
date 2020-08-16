@@ -8,9 +8,7 @@ export class FormButtonSubmitDirective {
 
   @Input() submittedForm: FormGroup;
 
-  constructor() { }
-
-  @HostListener('click', ['$event'])
+  @HostListener('click')
   handleClickEvent() {
     this.markAsTouched(this.submittedForm);
 
