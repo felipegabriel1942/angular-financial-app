@@ -6,17 +6,20 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { FormControlValidationDirective } from './directives/form-control-validation.directive';
 import { FormButtonSubmitDirective } from './directives/form-button-submit.directive';
 
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
     FormControlValidationDirective,
-    FormButtonSubmitDirective],
+    FormButtonSubmitDirective
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
     FontAwesomeModule,
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    ToastrModule.forRoot({progressBar: true, preventDuplicates: true})
   ],
   exports: [
     FormsModule,
@@ -25,7 +28,8 @@ import { FormButtonSubmitDirective } from './directives/form-button-submit.direc
     FontAwesomeModule,
     BsDatepickerModule,
     FormControlValidationDirective,
-    FormButtonSubmitDirective
+    FormButtonSubmitDirective,
+    ToastrModule
   ]
 })
 export class SharedModule { }

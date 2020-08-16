@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TransactionEnum } from 'src/app/shared/enum/transaction.enum';
 import { faSave, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { TransactionsService } from 'src/app/shared/service/transactions.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-form-transaction',
@@ -20,7 +21,8 @@ export class FormTransactionComponent implements OnInit {
   transactionsCategoryList = [];
   datepickerConfig = { isAnimated: true, dateInputFormat: 'DD/MM/YYYY' };
 
-  constructor(private transactionsService: TransactionsService) { }
+  constructor(private transactionsService: TransactionsService,
+              private toastr: ToastrService) { }
 
   ngOnInit() {
 
@@ -38,8 +40,10 @@ export class FormTransactionComponent implements OnInit {
 
   saveForm() {
     if (this.transactionForm.invalid) {
+      this.toastr.warning('Ainda não....');
       console.log('Ainda não....');
     } else {
+      this.toastr.success('Salvou...');
       console.log('Salvou...');
     }
     // this.transactionsService.saveTransaction(this.transactionForm.value);
