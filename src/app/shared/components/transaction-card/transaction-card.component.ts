@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { faSave, faTimes, faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit, Input } from '@angular/core';
+import { faSave, faTimes, faThumbsUp, faThumbsDown, faHandHoldingUsd } from '@fortawesome/free-solid-svg-icons';
+import { Transaction } from '../../models/transaction.model';
+import { TransactionEnum } from '../../enum/transaction.enum';
 
 @Component({
   selector: 'app-transaction-card',
@@ -10,10 +12,30 @@ export class TransactionCardComponent implements OnInit {
 
   faThumbsUp = faThumbsUp;
   faThumbsDown = faThumbsDown;
+  faHandHoldingUsd = faHandHoldingUsd;
+  faTimes = faTimes;
+
+  @Input() transaction = new Transaction();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  setTransactionType() {
+    if (this.transaction.type === TransactionEnum.Expense) {
+      return 'Despesa';
+    } else {
+      return 'Receita';
+    }
+  }
+
+  deleteTransaction() {
+    console.log('Deletou...');
+  }
+
+  avatarClass() {
+
   }
 
 }

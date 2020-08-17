@@ -1,3 +1,7 @@
 <section class="page-content-container">
-  <app-transaction-card></app-transaction-card>
+  <app-transaction-card
+    @itemState
+    *ngFor="let transaction of transactionsList"
+    [transaction]="transaction">
+  </app-transaction-card>
 </section>
