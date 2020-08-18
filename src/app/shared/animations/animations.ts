@@ -5,7 +5,7 @@ export const itemStateTrigger = trigger('itemState', [
     style({
       opacity: 0
     }),
-    animate('1000ms ease-out', keyframes([
+    animate('500ms ease-out', keyframes([
       style({
         opacity: 0,
         transform: 'translateX(-100%)',
@@ -20,6 +20,21 @@ export const itemStateTrigger = trigger('itemState', [
         opacity: 1,
         transform: 'translateX(0)',
         offset: 1
+      })
+    ]))
+  ]),
+  transition(':leave', [
+    animate('500ms ease-in', keyframes([
+      style({
+        opacity: 1,
+        transform: 'translateX(0)'
+      }),
+      style({
+        transform: 'translateX(-15%)'
+      }),
+      style({
+        opacity: 0,
+        transform: 'translateX(100%)'
       })
     ]))
   ])

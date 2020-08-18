@@ -1,7 +1,22 @@
 <section class="page-content-container">
+
+  <div class="row mx-1 d-flex justify-content-end">
+    <button
+      class="btn-custom btn-custom-primary "
+      type="submit"
+      (click)="newTransaction()">
+      <fa-icon
+        [icon]="faPlusCircle"
+        class="btn-icon">
+      </fa-icon>
+      Nova transação
+    </button>
+  </div>
+
   <app-transaction-card
+    *ngFor="let transaction of transactionsList; let i = index"
     @itemState
-    *ngFor="let transaction of transactionsList"
-    [transaction]="transaction">
+    [transaction]="transaction"
+    (transactionDeleted)="deleteTransaction(i)">
   </app-transaction-card>
 </section>

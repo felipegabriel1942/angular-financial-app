@@ -4,6 +4,8 @@ import { TransactionEnum } from 'src/app/shared/enum/transaction.enum';
 import { faSave, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { TransactionsService } from 'src/app/shared/service/transactions.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+import { Transaction } from 'src/app/shared/models/transaction.model';
 
 @Component({
   selector: 'app-form-transaction',
@@ -22,7 +24,8 @@ export class FormTransactionComponent implements OnInit {
   datepickerConfig = { isAnimated: true, dateInputFormat: 'DD/MM/YYYY' };
 
   constructor(private transactionsService: TransactionsService,
-              private toastr: ToastrService) { }
+              private toastr: ToastrService,
+              private router: Router) { }
 
   ngOnInit() {
 
@@ -40,13 +43,16 @@ export class FormTransactionComponent implements OnInit {
 
   saveForm() {
     if (this.transactionForm.invalid) {
-      this.toastr.warning('Ainda não....');
-      console.log('Ainda não....');
+      this.toastr.warning('Preencha todos os campos obrigatórios.');
+
     } else {
-      this.toastr.success('Salvou...');
-      console.log('Salvou...');
+      this.toastr.success('Transação salva.');
+      const newTransaction = new Transaction();
+      Object.assign(newTransaction, this.transactionForm.value);
+      newTransaction.id = new Date().getMilliseconds();
+      this.transactionsService.saveTransaction(newTransaction);
+      this.navigateBackToTransactions();
     }
-    // this.transactionsService.saveTransaction(this.transactionForm.value);
   }
 
   filterCategoryList() {
@@ -54,17 +60,9 @@ export class FormTransactionComponent implements OnInit {
     const typeSelected = this.transactionForm.get('type').value;
     this.resetField('category');
 
-    if (typeSelected === TransactionEnum.Expense) {
-      this.transactionsCategoryList = this.transactionsService.transactionsCategoryList.filter(
-        category => category.type === TransactionEnum.Expense
-      );
-
-    } else {
-      this.transactionsCategoryList = this.transactionsService.transactionsCategoryList.filter(
-        category => category.type === TransactionEnum.Revenue
-      );
-
-    }
+    this.transactionsCategoryList = this.transactionsService.transactionsCategoryList.filter(
+      category => category.type === typeSelected
+    );
   }
 
   resetField(field: string, value = '') {
@@ -73,5 +71,9 @@ export class FormTransactionComponent implements OnInit {
     categoryField.setValue(value);
     categoryField.markAsUntouched();
     categoryField.setErrors(null);
+  }
+
+  navigateBackToTransactions() {
+    this.router.navigateByUrl('transacoes');
   }
 }
